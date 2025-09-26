@@ -1,0 +1,429 @@
+/* style.css - global theme for CNC Spare World
+   All styling in one file. Uses Bootstrap utilities + these custom rules.
+*/
+
+:root{
+  --brand-teal: #07b79a;
+  --brand-teal-2: #059c86;
+  --dark-900: #0b0f10;
+  --muted-100: #f6f8f7;
+  --card-bg: #e6f7f4;
+  --radius: 14px;
+  --max-width: 1180px;
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;  --brand-teal: #04c7a6;
+  --brand-teal-2: #06c4a1;
+
+  --page-bg: #ffffff;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  color: var(--dark-900);
+  background: #ffffff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* container limiter used on pages */
+.container-limited {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* -------- NAVBAR (styles used by navbar.html) -------- */
+.navbar-brand { font-weight:800; color:#fff !important; }
+.navbar {
+  background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-2));
+  border-radius: 0; 
+  box-shadow: 0 6px 18px rgba(6,10,8,0.06);
+}
+.navbardown{
+  background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-2));
+  border-radius: 0; 
+  box-shadow: 0 6px 18px rgba(6,10,8,0.06);
+}
+.navbar .nav-link {
+  color: rgba(255,255,255,0.95) !important;
+  font-weight:600;
+  padding-left:18px; padding-right:18px;
+}
+.navbar-toggler { border: 0; color: rgba(255,255,255,0.95); }
+
+/* CTA button used sitewide */
+.btn-cta {
+  background: #fff;
+  color: var(--brand-teal);
+  border-radius: 999px;
+  font-weight:700;
+  padding: 10px 20px;
+  box-shadow: 0 8px 24px rgba(4,167,134,0.12);
+  border: none;
+}
+
+/* ===== spacer bar below navbar ===== */
+.nav-spacer {
+  width: 100%;
+  height: 130px; /* your requested height */position: absolute;
+  background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-2));
+}
+
+/* ===== hero wrapper ===== */
+/* Hero section background (full width) */
+.hero-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+
+  /* 🔑 full background image instead of white */
+  background: 
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+    url("../html/images/2E.jpeg"); /* pick your bg */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax-like effect */
+}
+
+
+/* ===== hero card ===== */
+.hero-card {
+  position: relative;
+  width: 95%;
+  max-width: 1000px;
+  height: 500px;
+  border-radius: 18px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  padding: 60px 40px;
+  text-align: center;
+  overflow: hidden;
+
+  /* Background image + dark overlay for text readability */
+  background: 
+    linear-gradient(rgba(16,20,22,0.85), rgba(16,20,22,0.85)), 
+    url("../html/images/bg-1.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* notch at bottom center */
+.hero-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 40px;
+
+  /* Match the same background image for seamless notch */
+  background: 
+    linear-gradient(rgba(16,20,22,0.85), rgba(16,20,22,0.85)), 
+    url("../html/images/bg-1.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 0 0 60px 60px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0; /* change to left if you want it on the left side */
+  width: 250px; 
+  height: 100%;
+  background: url("../html/images/bg-1.jpeg") no-repeat center;
+  background-size: contain;
+  opacity: 0.25;  /* faint overlay effect */
+  pointer-events: none;
+}
+
+
+/* ===== hero content ===== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.hero-title {
+  font-family: "Funnel Display", system-ui, sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.hero-sub {
+  font-size: 15px;
+  opacity: 0.85;
+  margin: 0 auto 28px;
+  max-width: 620px;
+  height: 20px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 28px;
+  background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-2));
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(4,199,166,0.25);
+}
+
+/* -------- Popular Orientation cards -------- */
+.cards-row {
+  margin-top: 28px;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.card-mini {
+  background: var(--card-bg);
+  border-radius:12px;
+  padding:16px;
+  width: 320px;
+  min-height:170px;
+  box-shadow: 0 8px 20px rgba(6,10,8,0.06);
+  position:relative;
+}
+.card-mini h5{ font-weight:700; margin-top:0; margin-bottom:8px; }
+.card-mini p{ margin-bottom:12px; color:#2b3534; }
+
+/* bottom link style inside card */
+.card-mini a {
+  display:inline-block;
+  text-decoration:none;
+  color: var(--brand-teal);
+  font-weight:700;
+}
+
+/* Pricing band and cards — drop-in (non-destructive) */
+:root{
+  --band-teal: #06c4a1;
+  --band-teal-2: #04c7a6;
+}
+
+/* Pricing band with sliding gradient background */
+.pricing-band{
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  padding: 60px 0 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* gradient background */
+  background: linear-gradient(90deg, var(--band-teal), var(--band-teal-2), var(--band-teal));
+     /* extra large so it loops seamlessly */
+  animation: bg-slide 15s ease-in-out infinite;  /* smoother loop */
+}
+
+/* animation to slide gradient back & forth */
+@keyframes bg-slide {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* make sure cards/content stay above */
+.pricing-band .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* header inside band */
+.pricing-header { color: #07201f; margin-bottom: 18px; margin-top: 25px; }
+.pricing-header h3 { font-size: 40px; font-weight:800; margin-bottom:6px; color:#0b2b29; }
+.pricing-header p { margin:0 auto 16px; max-width:700px; color: rgba(255,255,255,0.92); opacity:0.9; }
+
+/* row spacing: center cards and keep center elevated */
+.pricing-row { max-width: 1150px; margin: 0 auto 18px;  }
+
+/* base card */
+.pricing-card {
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 360px;
+  margin-top: 68px;
+  box-shadow: 0 14px 34px rgba(6,10,8,0.12);
+  background: #fff; /* card body is white as in screenshot */
+  transform: translateY(0);
+  transition: transform .28s, box-shadow .28s;
+}
+
+/* center card popped up */
+.center-card { transform: translateY(-58px); box-shadow: 0 22px 50px rgba(6,10,8,0.18); }
+
+/* top colored band on each card (thin header stripe) */
+.card-top { height: 69px; width: 100%; color: white; justify-content: center; text-align: center ; font-size:40px;  font-weight:700; padding: 7px; }
+.band-teal { background: linear-gradient(90deg, #28d1b0, #16c09a); height: 69px; width: 100%; color: white; justify-content: center; text-align: center ; font-size:40px;  font-weight:700; padding: 7px;}
+.band-emerald { background: linear-gradient(90deg, #06c4a1, #04c7a6); height: 69px; width: 100%; color: white; justify-content: center; text-align: center ; font-size:40px;  font-weight:700; padding: 7px;} /* primary */
+.band-teal2 { background: linear-gradient(90deg, #17bfa0, #0fb090);height: 69px; width: 100%; color: white; justify-content: center; text-align: center ; font-size:40px;  font-weight:700; padding: 7px; }
+
+/* card body */
+.pricing-card .card-body { padding: 20px; box-sizing: border-box; }
+.plan-name { margin:0; font-weight:800; font-size:15px; color:#0c3936; }
+.plan-price { margin: 10px 0 14px; font-weight:900; color:#0b2b29; }
+.plan-price .amt { font-size:34px; display:inline-block; margin-right:6px; }
+.plan-price .period { font-size:13px; color:#6b8280; font-weight:700; }
+
+/* divider */
+.divider { width: 54%; margin: 12px auto; border-top: 2px solid rgba(6,10,8,0.06); }
+
+/* features */
+.plan-features { list-style:none; padding:0; margin: 10px 0 16px; color:#4b5754; font-size:13px; line-height:1.45; text-align:left; }
+.plan-features li { padding:6px 0; border-top: 1px solid rgba(6,10,8,0.03); }
+.plan-features li:first-child { border-top: none; padding-top:0; }
+
+/* CTA buttons */
+.pricing-card .btn { border-radius:8px; font-weight:700; }
+.btn-primary { background: linear-gradient(90deg, var(--band-teal), var(--band-teal-2)); border:none; color:#fff; }
+.btn-outline-dark { color:#0b2b29; }
+
+/* white strip under cards (inside band) */
+.white-strip{
+  max-width: 900px;
+  margin: 28px auto 20px;
+  margin-top: 80px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(6,10,8,0.08);
+  
+}
+.input-group{
+  margin-left: 140px;
+}
+/* responsive */
+@media (max-width: 992px){
+  .center-card { transform: translateY(-18px); }
+  .pricing-band{ padding:40px 0 30px; }
+  .plan-price .amt{ font-size:28px; }
+}
+
+@media (max-width: 768px){
+  .pricing-row { margin-bottom: 8px; }
+  .center-card { transform: translateY(0); } /* stacked layout — no elevation on phones */
+  .pricing-card { min-height: auto; }
+  .pricing-header p { color: rgba(255,255,255,0.95); }
+}
+
+/* decorative floating background element (subtle) */
+.decorative-blob {
+  position:absolute;
+  right:-60px;
+  top: 40%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(7,183,154,0.14), rgba(5,156,134,0.06));
+  filter: blur(36px);
+  z-index:0;
+  pointer-events:none;
+}
+/*
+
+/* -------- PRODUCT CARDS (product.html) -------- */
+
+.acontainer{background: #f9fafa;
+  font-family: var(--font-sans);
+  font-size: larger;
+
+  border-radius: 10px;padding: 12px;
+  width: 1200px;
+  margin-bottom: 230px;
+  justify-content: center;
+  height:  100px;
+  text-align: center; position: relative;
+  margin-left: 78px;
+  
+
+}
+.contact-section {
+  background: #f9fafa;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;  
+ 
+  
+
+}
+
+.contact-section h2 {
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.contact-section .card {
+  border-radius: 2px;  color: var(--band-teal);
+  
+
+ 
+}
+
+.contact-section .form-control {
+  border-radius: 8px;
+  border: 2px solid var(--band-teal);
+  padding: 10px;
+  margin-top: 10px;
+  color: var(--band-teal);
+  
+}
+
+.product-card {
+  border-radius:12px;
+  overflow:hidden;
+  border: 1px solid rgba(6,10,8,0.04);
+  background:#fff;
+  box-shadow: 0 8px 20px rgba(6,10,8,0.04);
+}
+.product-card img { width:100%; display:block; object-fit:cover; height:160px; }
+
+/* -------- CONTACT CARD / FORMS -------- */
+.form-card {
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 12px 32px rgba(6,10,8,0.06);
+}
+
+/* form required input indicator style small tweak */
+label.required::after { content: " *"; color:#d9234f; font-weight:700; }
+
+/* -------- FOOTER (footer.html inherits this) -------- */
+.site-footer {
+  background: var(--band-teal);
+  color: #07302d; 
+  border-radius: 0px; 
+  margin-bottom: 0px;
+  width: 100%;
+  height: 250px;
+  
+}
+.site-footer a { color: var(--brand-teal); }
+
+/* -------- IFRAME host sizing (for the include approach) -------- */
+.include-frame { width:100%;  }
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+  .hero-title { font-size: 1.8rem; }
+  .hero-wrap { padding: 36px 16px; border-radius:10px; }
+  .card-mini { width:100%; max-width:520px; }
+  .packages { flex-direction:column; align-items:center; }
+  .pkg.center { transform:none; }
+  .testi { width:100%; max-width:520px; }
+}
+@media (min-width: 992px) {
+  .hero-title { font-size: 2.8rem; }
+}
